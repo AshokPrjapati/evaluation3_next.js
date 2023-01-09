@@ -240,7 +240,7 @@ export default function Home({ data, projects }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
+      <Navbar avatar={avatar_url} />
       <Flex gap={"30px"}>
         <Box>
           <Center py={6}>
@@ -371,13 +371,14 @@ export default function Home({ data, projects }) {
           boxShadow={"lg"}
           rounded={"lg"}
           p={6}
-          textAlign={"center"}
+          textAlign={"left"}
         >
-          <Heading>Projects</Heading>
+          <Heading textAlign={"center"}>Projects</Heading>
           <Grid
             mt={"20px 0"}
             templateColumns={{ base: `repeat(1,1fr)`, md: `repeat(2,1fr)` }}
             p={4}
+            gap={"20px 20px"}
           >
             {projects.map((p) => (
               <Box
@@ -388,14 +389,22 @@ export default function Home({ data, projects }) {
                 rounded={"lg"}
                 p={6}
               >
-                <Text as="h3">{}</Text>
+                <Text fontSize={"22px"} fontWeight={600}>
+                  {p.name}
+                </Text>
                 <Text as="p">{p.full_name}</Text>
-                <Flex>
-                  <Flex justifyContent={"space-between"} p={2}>
-                    <Text></Text>
-                    <Text></Text>
+                <Flex
+                  w={"100%"}
+                  align="center"
+                  justifyContent={"space-between"}
+                >
+                  <Flex align="center">
+                    <Text>star : {p.stargazers_count}</Text>
+                    <Text p={"0 10px"}>fork : {p.forks}</Text>
                   </Flex>
-                  <Text>{p.language}</Text>
+                  <Text fontSize={"18px"} fontWeight={600}>
+                    {p.language}
+                  </Text>
                 </Flex>
               </Box>
             ))}

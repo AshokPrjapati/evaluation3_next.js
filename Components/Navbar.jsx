@@ -36,7 +36,7 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function Navbar({ children }) {
+export default function Navbar({ avatar }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -64,12 +64,7 @@ export default function Navbar({ children }) {
                 cursor={"pointer"}
                 minW={0}
               >
-                <Avatar
-                  size={"sm"}
-                  src={
-                    "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                  }
-                />
+                <Avatar size={"sm"} src={avatar} />
               </MenuButton>
               <MenuList>
                 <MenuItem>Ashok Kumar</MenuItem>
@@ -92,7 +87,6 @@ export default function Navbar({ children }) {
           </Box>
         ) : null}
       </Box>
-      <Box>{children}</Box>
     </>
   );
 }
