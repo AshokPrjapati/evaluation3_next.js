@@ -36,7 +36,7 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function Navbar() {
+export default function Navbar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -92,6 +92,7 @@ export default function Navbar() {
           </Box>
         ) : null}
       </Box>
+      <Box>{children}</Box>
     </>
   );
 }

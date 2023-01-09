@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import Head from "next/head";
+import Navbar from "../Components/Navbar";
 
 const skills = [
   "React",
@@ -89,6 +90,7 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
       <Flex>
         <Box>
           <Center py={6}>
@@ -213,6 +215,14 @@ export default function Home({ data }) {
             ))}
           </Card>
         </Box>
+        <Box
+          w={"full"}
+          bg={useColorModeValue("white", "gray.900")}
+          boxShadow={"lg"}
+          rounded={"lg"}
+          p={6}
+          textAlign={"center"}
+        ></Box>
       </Flex>
     </>
   );
