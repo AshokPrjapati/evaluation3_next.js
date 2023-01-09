@@ -379,23 +379,26 @@ export default function Home({ data, projects }) {
             templateColumns={{ base: `repeat(1,1fr)`, md: `repeat(2,1fr)` }}
             p={4}
           >
-            <Box
-              w={"full"}
-              bg={useColorModeValue("white", "gray.900")}
-              boxShadow={"lg"}
-              rounded={"lg"}
-              p={6}
-            >
-              <Text as="h3">{}</Text>
-              <Text as="p">{projects.items.full_name}</Text>
-              <Flex>
-                <Flex justifyContent={"space-between"} p={2}>
-                  <Text></Text>
-                  <Text></Text>
+            {projects.map((p) => (
+              <Box
+                key={p.id}
+                w={"full"}
+                bg={bg}
+                boxShadow={"lg"}
+                rounded={"lg"}
+                p={6}
+              >
+                <Text as="h3">{}</Text>
+                <Text as="p">{p.full_name}</Text>
+                <Flex>
+                  <Flex justifyContent={"space-between"} p={2}>
+                    <Text></Text>
+                    <Text></Text>
+                  </Flex>
+                  <Text>{p.language}</Text>
                 </Flex>
-                <Text>{projects.language}</Text>
-              </Flex>
-            </Box>
+              </Box>
+            ))}
           </Grid>
         </Box>
       </Flex>
